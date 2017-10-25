@@ -1,0 +1,16 @@
+.idea/*
+*.pyc
+.cache/*
+bin/*
+logs/*
+db.sqlite3
+dump.rdb
+apptemp/*
+*.swp
+media/*
+staticfiles/*
+*.log
+settings.ini
+.exrc
+context_*.json
+static_files/*
