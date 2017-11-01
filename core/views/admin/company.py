@@ -6,7 +6,7 @@ from core.forms import CompanyForm
 class CompanyCreate(CreateView):
 	model = Company
 	form_class = CompanyForm
-	success_url = ('/')
+	success_url = ('list_company')
 
 
 class CompanyListView(ListView):
