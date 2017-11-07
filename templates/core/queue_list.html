@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+{% block body %}
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+	<thead>
+	    <tr>
+	      <th class="mdl-data-table__cell--non-numeric">Fila</th>
+	      <th>Ponto</th>
+	      <th>Horário início</th>
+        <th>Horário fim</th>
+	    </tr>
+  	</thead>
+  	<tbody>
+  	{% for queue in object_list %}
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">{{queue.name}}</td>
+      <td>{{queue.point_of_service.name}}</td>
+      <td>{{queue.start_time}}</td>
+      <td>{{queue.end_time}}</td>
+    </tr>
+	{% endfor %}
+  	</tbody>
+</table>
+<a href="{% url 'add_queue' %}" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Adicionar Fila</a>
+{% endblock %}

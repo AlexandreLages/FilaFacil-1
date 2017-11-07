@@ -1,3 +1,22 @@
-{% for company in object_list %}
-	{{company.name}}/{{company.cnpj}}/{{company.description}}<br>
-{% endfor %}
+{% extends "admin/base.html" %}
+{% block body %}
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+	<thead>
+	    <tr>
+	      <th class="mdl-data-table__cell--non-numeric">Empresa</th>
+	      <th>CNPJ</th>
+	      <th>Pontos de Atendimento</th>
+	    </tr>
+  	</thead>
+  	<tbody>
+  	{% for company in object_list %}
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">{{company.name}}</td>
+      <td>{{company.cnpj}}</td>
+      <td></td>
+    </tr>
+	{% endfor %}
+  	</tbody>
+</table>
+<a href="{% url 'add_company' %}" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Adicionar Empresa</a>
+{% endblock %}

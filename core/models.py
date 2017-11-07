@@ -23,6 +23,9 @@ class PointOfService(models.Model):
 	description = models.TextField(max_length=200, blank=True, null=True)
 	name = models.TextField(max_length=100, blank=False, null=False)
 
+	def __str__(self):
+		return self.name
+
 
 class Queue(models.Model):
 	point_of_service = models.ForeignKey(PointOfService, on_delete=models.CASCADE)

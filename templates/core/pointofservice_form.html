@@ -1,3 +1,7 @@
+{% extends "admin/base.html" %}
+{% load widget_tweaks %}
+
+{% block body %}
 <form action="" method="post">{% csrf_token %}
 	<label>Nome do Ponto</label>
 	{% if form.name %}
@@ -30,3 +34,4 @@
 
 	<button type="submit">Salvar</button>
 </form>
+{% endblock %}

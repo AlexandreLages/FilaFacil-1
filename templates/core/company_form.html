@@ -1,32 +1,43 @@
 {% extends "admin/base.html" %}
+{% load widget_tweaks %}
 
 {% block body %}
-<div class="col-lg-12">
-    <h1 class="page-header">Empresas</h1>
-</div>
-<form action="" method="post" novalidate >{% csrf_token %}
-	<label>Nome da Empresa</label>
-	{% if form.name %}
-		{% for error in form.name.errors %}
-			{{error|escape}}
-		{% endfor %}
-	{% endif %}
-	{{form.name}}
-	<label>Descrição</label>
-	{% if form.description %}
-		{% for error in form.description.errors %}
-			{{error|escape}}
-		{% endfor %}
-	{% endif %}
-	{{form.description}}
-	<label>CNPJ</label>
-	{% if form.cnpj %}
-		{% for error in form.cnpj.errors %}
-			{{error|escape}}
-		{% endfor %}
-	{% endif %}
-	{{form.cnpj}}
-
-	<button type="submit">Salvar</button>
-</form>
+	<form action="" method="post" novalidate >{% csrf_token %}
+		<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				{{form.name|add_class:"mdl-textfield__input"}}	
+				<label class="mdl-textfield__label" for="sample3">Nome da Empresa</label>
+				<span class="mdl-textfield__error">
+					{% if form.name %}
+						{% for error in form.name.errors %}
+							{{error|escape}}
+						{% endfor %}
+					{% endif %}	
+				</span>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				{{form.description|add_class:"mdl-textfield__input"}}	
+				<label class="mdl-textfield__label" for="sample3">Descrição</label>
+				<span class="mdl-textfield__error">
+					{% if form.description %}
+						{% for error in form.description.errors %}
+							{{error|escape}}
+						{% endfor %}
+					{% endif %}
+				</span>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				{{form.cnpj|add_class:"mdl-textfield__input"}}	
+				<label class="mdl-textfield__label" for="sample3">CNPJ</label>
+				<span class="mdl-textfield__error">
+					{% if form.cnpj %}
+						{% for error in form.cnpj.errors %}
+							{{error|escape}}
+						{% endfor %}
+					{% endif %}
+				</span>
+			</div>
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Salvar</button>
+		</div>
+	</form>
 {% endblock %}
